@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.wa.dao.CountryMapper" >
+  <resultMap id="BaseResultMap" type="com.wa.pojo.Country" >
+    <constructor >
+      <arg column="country_ip" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="infect_num" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="city" jdbcType="VARCHAR" javaType="java.lang.String" />
+    </constructor>
+  </resultMap>
+  <insert id="insert" parameterType="com.wa.pojo.Country" >
+    insert into t_ip_country (country_ip, infect_num, city
+      )
+    values (#{countryIp,jdbcType=VARCHAR}, #{infectNum,jdbcType=VARCHAR}, #{city,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.wa.pojo.Country" >
+    insert into t_ip_country
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="countryIp != null" >
+        country_ip,
+      </if>
+      <if test="infectNum != null" >
+        infect_num,
+      </if>
+      <if test="city != null" >
+        city,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="countryIp != null" >
+        #{countryIp,jdbcType=VARCHAR},
+      </if>
+      <if test="infectNum != null" >
+        #{infectNum,jdbcType=VARCHAR},
+      </if>
+      <if test="city != null" >
+        #{city,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+</mapper>
