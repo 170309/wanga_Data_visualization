@@ -45,6 +45,7 @@
                             <li><a class="menu-item" onclick="loadpage('echartsMap');" >大屏页面</a></li>
                             <li><a class="menu-item" onclick="loadpage('WAIndex');" >首页</a></li>
                             <li><a class="menu-item" onclick="loadpage('individualHtml');" >某单位</a></li>
+                            <li><a class="menu-item" onclick="loadpage('login');" >登录</a></li>
                         </ul>
                     </div>
 
