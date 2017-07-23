@@ -1,0 +1,94 @@
+<DIV id="tj_zw" class="postbox">
+    <div class="right_header">
+        <h1>根据职位统计</h1>
+    </div>
+    <hr class="hr0" />
+    <DIV class="inside" >
+        
+                <div id="yuanTuSJ" style="width:100%; height:450px; margin-top:15px; background:url(img/tongji.png) 0px 0px no-repeat;">
+
+                </div>
+                <div style="width:100%; height:500px; margin-top:14px;">
+                    <div id="jqplotDIV">
+
+                    </div>
+                </div>
+    </div>
+</div>
+<script type="text/javascript">
+        QeryItslsSJ();
+    function TJQueryStrSJ() {
+        var str = "";
+//        var zbrq1 = $("#nf1").val();
+//        var zbrq2 = $("#nf2").val();
+//        if (zbrq1 != "" && zbrq2!="") {
+//            str = str + " and SUBSTR(cgsj,1,4) BETWEEN  '"+zbrq1+"' and '"+zbrq2+"'";
+//        }else if (zbrq1 != ""&& zbrq2=="") {
+//            str = str + " and SUBSTR(cgsj,1,4) BETWEEN  '"+zbrq1+"' and '"+zbrq1+"'";
+//        }else if (zbrq2 != ""&& zbrq1=="") {
+//            str = str + " and SUBSTR(cgsj,1,4) BETWEEN  '"+zbrq2+"' and '"+zbrq2+"'";
+//        }
+        
+        str = encodeURI(str);
+        str = encodeURI(str);
+        return str;
+    }
+   
+    function QeryItslsSJ() {
+        var qStr=TJQueryStrSJ();
+        $.ajax({
+            type:"post",
+            async:false,
+            url:"user.getUsersList.do",
+            data:"queryStr="+qStr,
+            success:function(msg){
+                showBarRenderer(msg);
+            }   
+        });
+    }
+     function showBarRenderer(msg) {
+        $("#yuanTuSJ").css("display","none");
+        $('#jqplotDIV').empty();
+        var line=$.parseJSON(msg);
+        var mydata = jqplotData2(line.data);
+        var tlabel = eval(line.label);
+
+        $.jqplot('jqplotDIV', mydata, {
+            animate: !$.jqplot.use_excanvas, //是否动画显示
+            title: line.title,
+            seriesDefaults: {
+                renderer: $.jqplot.BarRenderer,
+                shadow: false, // 各图在图表中是否显示阴影区域.
+                barWidth: 30, // 设置柱状图中每个柱状条的宽度
+                pointLabels: {show: true}
+            },
+            series: tlabel,
+            legend: {
+                renderer: $.jqplot.EnhancedLegendRenderer,
+                show: true
+            },
+            axisDefaults: {
+                show: false, //是否自动显示坐标轴。 
+                min: 0, // 横(纵)轴最小刻度值 
+                pad: 0.5, //横(纵)轴度值增涨因子 
+                renderer: $.jqplot.LinearAxisRenderer // 设置横（纵）轴上数据加载的渲染器
+
+            },
+            axes: {
+                xaxis: {
+                    renderer: $.jqplot.CategoryAxisRenderer,
+                    label: line.XTitle,
+                    tickOptions: {
+                        formatString: '%b&nbsp;%#d'
+                    }
+                },
+                yaxis: {
+                    label: line.YTitle,
+                    tickOptions: {
+                        formatString: '%d'
+                    }
+                }
+            },
+        });
+    }
+</script>

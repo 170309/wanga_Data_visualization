@@ -1,0 +1,139 @@
+<DIV id="echartsMap_chart" class="postbox">
+    <div class="right_header">
+        <h1>新疆地图</h1>
+    </div>
+    <hr class="hr0" />
+    <DIV class="inside" >
+        <div class="row-fluid" style="height:380px;position:relative;">
+            <div class="select_box"><form id="form1" name="form1" method="post" action="">
+                    <label for="year">请选择年份</label>
+                    <select name="year" id="year">
+                        <option>2010</option>
+                        <option>2011</option>
+                        <option>2012</option>
+                        <option>2013</option>
+                        <option>2014</option>
+                        <option>2015</option>
+                        <option selected="selected">2016</option>
+                    </select>
+                </form></div>
+            <div id="chartContainer"  style="position: absolute; height: 100%; width: 90%; background-color: transparent; cursor: default;text-align:left">
+                &nbsp;无相关数据
+            </div>
+
+        </div>
+    </div>
+</div>
+<script type="text/javascript">
+    DrawMap2();
+ function DrawMap2(){
+    require.config({
+        paths: {
+            echarts: 'js/echarts/www'
+        }
+    });
+    var myChart;
+    var colorList;
+    require(
+            [
+                'echarts',
+                'echarts/chart/bar',
+                'echarts/chart/line',
+                'echarts/chart/map'
+            ],
+            function(ec) {
+                colorList = require('zrender/tool/color').getGradientColors(
+                        ['red', 'yellow', 'lightskyblue'], 10
+                        );
+                //console.log(colorList)
+                myChart = ec.init(document.getElementById('chartContainer'));
+                //myChart.setOption(option);
+                yearSelector.onchange();
+                window.onresize = myChart.resize;
+                var ecConfig = require('echarts/config');
+                myChart.on(ecConfig.EVENT.MAP_SELECTED, mapSelected);
+            }
+    );
+
+    var selected;
+    function mapSelected(param) {
+        selected = param.selected;
+        var mapSeries = option.series[0];
+        var data = [];
+        var legendData = [];
+        var legendData = [];
+        var name;
+        option.series = option.series.slice(0, 1);
+        for (var p = 0, len = mapSeries.data.length; p < len; p++) {
+            name = mapSeries.data[p].name;
+            mapSeries.data[p].selected = selected[name];
+            if (selected[name]) {
+                var tarIdx;
+                for (var i = 0, l = pList.length; i < l; i++) {
+                    if (pList[i] == name) {
+                        tarIdx = i;
+                        break;
+                    }
+                }
+                for (var i = 2010; i <= 2016; i++) {
+                    data.push(dataPeople[i][tarIdx]);
+                }
+                option.series.push({
+                    name: name,
+                    type: 'line',
+                    tooltip: {
+                        trigger: 'axis'
+                    },
+                    data: data
+                });
+                legendData.push(name);
+                data = [];
+            }
+        }
+        option.legend.data = legendData;
+        myChart.setOption(option, true);
+    }
+
+    var yearSelector = document.getElementById('year');
+    yearSelector.onchange = function(e) {
+        var curYear = yearSelector.selectedOptions[0].innerHTML;
+        option.title.text = '各地州数据汇总分析 (' + curYear + ')';
+        var max = dataPeople[curYear + 'max'];
+        var min = dataPeople[curYear + 'min'];
+        var gap = (max - min) / 5;
+
+        option.dataRange.max = max;
+        option.dataRange.min = min;
+        if (min >= 0) {
+            //双正
+            option.dataRange.color = [colorList[0], colorList[10]];
+
+        }
+        else if (max >= 0 && min <= 0) {
+            //正负
+            var first = Math.round(10 - max / (max - min) * 10);
+            var end = Math.round(min / (min - max) * 10 + 10);
+            option.dataRange.color = [
+                colorList[first],
+                colorList[Math.round((end - first) / 2 + first)],
+                colorList[end]
+            ];
+
+        }
+        else {
+            //双负
+            option.dataRange.color = [colorList[11], colorList[20]];
+
+        }
+
+        option.series[0].data = dataPeople[curYear];
+
+        if (selected) {
+            mapSelected({selected: selected});
+        }
+        else {
+            myChart.setOption(option, true);
+        }
+    }
+}
+</script>

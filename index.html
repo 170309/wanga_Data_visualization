@@ -1,0 +1,271 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<script type="text/javascript">
+    echartsMap:
+        var ma = {
+            "success": true, "title": "木马受控端数量", "avgRange": 2000,
+            "data": [
+                {"name": "乌鲁木齐市", "value": 16956},
+                {"name": "喀什", "value": 6019},
+                {"name": "阿克苏", "value": 5229},
+                {"name": "伊犁州", "value": 4792},
+                {"name": "哈密", "value": 3038},
+                {"name": "昌吉州", "value": 2969},
+                {"name": "巴州", "value": 1887},
+                {"name": "克拉玛依", "value": 1683},
+                {"name": "博州", "value": 634},
+                {"name": "吐鲁番", "value": 535},
+                {"name": "塔城", "value": 360},
+                {"name": "阿勒泰", "value": 138},
+                {"name": "和田", "value": 97},
+                {"name": "石河子", "value": 89},
+                {"name": "克州", "value": 33}
+            ]
+        };
+    var kzrc = {
+        "success": true, "title": "蠕虫病毒感染数量", "avgRange": 1000,
+        "data": [
+            {"name": "乌鲁木齐市", "value": 1074},
+            {"name": "巴州", "value": 262},
+            {"name": "伊犁州", "value": 235},
+            {"name": "克拉玛依", "value": 141},
+            {"name": "克州", "value": 139},
+            {"name": "昌吉州", "value": 128},
+            {"name": "阿克苏", "value": 107},
+            {"name": "石河子", "value": 72},
+            {"name": "博州", "value": 60},
+            {"name": "喀什", "value": 55},
+            {"name": "阿勒泰", "value": 48},
+            {"name": "吐鲁番", "value": 47},
+            {"name": "哈密", "value": 44},
+            {"name": "塔城", "value": 32},
+            {"name": "和田", "value": 23}
+        ]
+    };
+    var skrc = {
+        "success": true, "title": "木马控制端数量", "avgRange": 1000,
+        "data": [
+            {"name": "乌鲁木齐市", "value": 15},
+            {"name": "吐鲁番", "value": 242},
+            {"name": "昌吉州", "value": 1},
+            {"name": "石河子", "value": 2}
+        ]
+    };
+
+
+    var ma = {
+        "success": true, "title": "木马主控总数", "avgRange": 1000,
+        "data": [{"name": "克拉玛依", "value": 621}, {"name": "哈密", "value": 610}, {"name": "阿克苏", "value": 598},
+            {"name": "阿勒泰", "value": 532}, {"name": "喀什", "value": 432}, {"name": "昌吉州", "value": 377},
+            {"name": "克州", "value": 310}, {"name": "吐鲁番", "value": 317}, {"name": "博州", "value": 271},
+            {"name": "乌鲁木齐市", "value": 270}, {"name": "巴州", "value": 172}, {"name": "塔城", "value": 132}, {
+                "name": "和田",
+                "value": 121
+            }
+        ]
+    };
+    var kzrc = {
+        "success": true, "title": "蠕虫病毒感染总数", "avgRange": 1000,
+        "data": [{"name": "巴州", "value": 636}, {"name": "昌吉州", "value": 523}, {"name": "阿克苏", "value": 441},
+            {"name": "阿勒泰", "value": 431}, {"name": "喀什", "value": 426}, {"name": "哈密", "value": 412},
+            {"name": "克州", "value": 311}, {"name": "吐鲁番", "value": 211}, {"name": "博州", "value": 146},
+            {"name": "乌鲁木齐市", "value": 121}, {"name": "克拉玛依", "value": 57}, {"name": "塔城", "value": 53}, {
+                "name": "和田",
+                "value": 25
+            }
+        ]
+    };
+    var skrc = {
+        "success": true, "title": "木马受控总数", "avgRange": 1000,
+        "data": [{"name": "乌鲁木齐市", "value": 778}, {"name": "吐鲁番", "value": 773}, {"name": "博州", "value": 631},
+            {"name": "阿勒泰", "value": 624}, {"name": "喀什", "value": 552}, {"name": "昌吉州", "value": 512},
+            {"name": "克州", "value": 465}, {"name": "哈密", "value": 457}, {"name": "阿克苏", "value": 421},
+            {"name": "克拉玛依", "value": 324}, {"name": "巴州", "value": 263}, {"name": "塔城", "value": 190}, {
+                "name": "和田",
+                "value": 152
+            }
+        ]
+    };
+    var axis_json = {
+        "success": true,
+        "title": "主要地区病毒感染数",
+        "avgRange": 1000,
+        "legen": ["移动", "联通", "电信"],
+        "arr_sum": ["name", "value1", "value2", "value3"],
+        "data": [{"name": "乌鲁木齐市", "value1": 778, "value2": 344, "value3": 434}, {
+            "name": "吐鲁番",
+            "value1": 773,
+            "value2": 346,
+            "value3": 427
+        }, {"name": "博州", "value1": 631, "value2": 742, "value3": 111},
+            {"name": "阿勒泰", "value1": 624, "value2": 738, "value3": 114}, {
+                "name": "喀什",
+                "value1": 552,
+                "value2": 724,
+                "value3": 174
+            }, {"name": "昌吉州", "value1": 512, "value2": 824, "value3": 312},
+            {"name": "克州", "value1": 465, "value2": 235, "value3": 230}, {
+                "name": "哈密",
+                "value1": 457,
+                "value2": 528,
+                "value3": 375
+            }, {"name": "阿克苏", "value1": 421, "value2": 411, "value3": 211},
+            {"name": "克拉玛依", "value1": 324, "value2": 838, "value3": 521}, {
+                "name": "巴州",
+                "value1": 263,
+                "value2": 482,
+                "value3": 328
+            }, {"name": "塔城", "value1": 190, "value2": 514, "value3": 245},
+            {"name": "和田", "value1": 152, "value2": 568, "value3": 425}]
+    };
+    var axis_json2 = {
+        "success": true,
+        "title": "一周对比图",
+        "avgRange": 1000,
+        "legen": ["上周", "本周"],
+        "arr_sum": ["name", "lastWeek", "thisWeek", "devalue"],
+        "data": [{"name": "乌鲁木齐市", "lastWeek": 778, "thisWeek": 344, "devalue": 434}, {
+            "name": "吐鲁番",
+            "lastWeek": 773,
+            "thisWeek": 346,
+            "devalue": 427
+        }, {"name": "博州", "lastWeek": 631, "thisWeek": 742, "devalue": 111},
+            {"name": "阿勒泰", "lastWeek": 624, "thisWeek": 738, "devalue": 114}, {
+                "name": "喀什",
+                "lastWeek": 552,
+                "thisWeek": 724,
+                "devalue": 172
+            }, {"name": "昌吉州", "lastWeek": 512, "thisWeek": 824, "devalue": 312},
+            {"name": "克州", "lastWeek": 465, "thisWeek": 235, "devalue": 230}, {
+                "name": "哈密",
+                "lastWeek": 457,
+                "thisWeek": 528,
+                "devalue": 71
+            }, {"name": "阿克苏", "lastWeek": 421, "thisWeek": 411, "devalue": 11},
+            {"name": "克拉玛依", "lastWeek": 324, "thisWeek": 838, "devalue": 514}, {
+                "name": "巴州",
+                "lastWeek": 263,
+                "thisWeek": 482,
+                "devalue": 219
+            }, {"name": "塔城", "lastWeek": 190, "thisWeek": 514, "devalue": 324},
+            {"name": "和田", "lastWeek": 152, "thisWeek": 568, "devalue": 416}]
+    };
+
+
+    var ma = {
+        "success": true, "title": "木马主控总数", "avgRange": 1000,
+        "data": [{"name": "移动", "value": 621}, {"name": "联通", "value": 610}, {"name": "电信", "value": 598}
+        ]
+    };
+    var kzrc = {
+        "success": true, "title": "蠕虫病毒感染总数", "avgRange": 1000,
+        "data": [{"name": "移动", "value": 636}, {"name": "联通", "value": 523}, {"name": "电信", "value": 441}
+        ]
+    };
+    var skrc = {
+        "success": true, "title": "木马受控总数", "avgRange": 1000,
+        "data": [{"name": "移动", "value": 778}, {"name": "联通", "value": 773}, {"name": "电信", "value": 631}
+        ]
+    };
+    var axis_json = {
+        "success": true,
+        "title": "",
+        "avgRange": 1000,
+        "legen": ["木马主控总数", "蠕虫病毒感染总数", "木马受控总数"],
+        "arr_sum": ["name", "value1", "value2", "value3"],
+        "data": [{"name": "移动", "value1": 778, "value2": 344, "value3": 434}, {
+            "name": "联通",
+            "value1": 773,
+            "value2": 346,
+            "value3": 427
+        }, {"name": "电信", "value1": 631, "value2": 742, "value3": 111}
+        ]
+    };
+    var axis_json2 = {
+        "success": true,
+        "title": "一周对比图",
+        "avgRange": 1000,
+        "legen": ["上周", "本周"],
+        "arr_sum": ["name", "lastWeek", "thisWeek", "devalue"],
+        "data": [{"name": "移动", "lastWeek": 578, "thisWeek": 344, "devalue": 234}, {
+            "name": "联通",
+            "lastWeek": 431,
+            "thisWeek": 542,
+            "devalue": 111
+        }, {"name": "电信", "lastWeek": 673, "thisWeek": 346, "devalue": 327}
+        ]
+    };
+
+
+
+    zxqy = {
+        "success": true,
+        "title": "主要地区病毒感染数",
+        "avgRange": 1000,
+        "legen": ["木马主控总数", "蠕虫病毒感染总数", "木马受控总数"],
+        "arr_sum": ["name", "value1", "value2", "value3"],
+        "data": [{"name": "乌鲁木齐市", "value1": 778, "value2": 344, "value3": 273}, {
+            "name": "吐鲁番",
+            "value1": 773,
+            "value2": 346,
+            "value3": 668
+        }, {"name": "博州", "value1": 631, "value2": 742, "value3": 238},
+            {"name": "阿勒泰", "value1": 624, "value2": 738, "value3": 268}, {
+                "name": "喀什",
+                "value1": 552,
+                "value2": 724,
+                "value3": 624
+            }, {"name": "昌吉州", "value1": 512, "value2": 824, "value3": 168},
+            {"name": "克州", "value1": 465, "value2": 235, "value3": 257}, {
+                "name": "哈密",
+                "value1": 457,
+                "value2": 528,
+                "value3": 375
+            }, {"name": "阿克苏", "value1": 421, "value2": 411, "value3": 211},
+            {"name": "克拉玛依", "value1": 324, "value2": 838, "value3": 521}, {
+                "name": "巴州",
+                "value1": 263,
+                "value2": 482,
+                "value3": 328
+            }, {"name": "塔城", "value1": 190, "value2": 514, "value3": 245},
+            {
+                "name":
+                    "和田", "value1":
+                152, "value2":
+                568, "value3":
+                425
+            }]
+    }
+    ;
+    zxqy = {
+        "success": true,
+        "title": "主机安全情况",
+        "avgRange": 1000,
+        "label": ["木马主控总数", "蠕虫病毒感染总数", "木马受控总数"],
+        "arr_sum": ["name", "value1", "value2", "value3"],
+        "data": [{"name": "1.1.1.1", "value1": 78, "value2": 44, "value3": 73}, {
+            "name": "1.1.1.2",
+            "value1": 73,
+            "value2": 46,
+            "value3": 68
+        }, {"name": "1.1.1.3", "value1": 31, "value2": 42, "value3": 38},
+            {"name": "1.1.1.4", "value1": 24, "value2": 38, "value3": 68}, {
+                "name": "1.1.1.5",
+                "value1": 52,
+                "value2": 24,
+                "value3": 24
+            }, {"name": "1.1.1.6", "value1": 12, "value2": 24, "value3": 68},
+            {"name": "1.1.1.7", "value1": 65, "value2": 35, "value3": 57}]
+    };
+</script>
+<body>
+
+</body>
+</html>

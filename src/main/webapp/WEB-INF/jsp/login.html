@@ -1,0 +1,115 @@
+<!--<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">-->
+<!--<html xmlns="http://www.w3.org/1999/xhtml">-->
+<!--<head>-->
+<!--<title>二维码资产管理系统登录</title>-->
+<!--<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />-->
+<!--<meta name="viewport" content="width=device-width, initial-scale=1.0" />-->
+<!--<link href="css/login.css" rel="stylesheet" type="text/css" />-->
+<!--<script type="text/javascript" src="js/jquery.min.js"></script>-->
+<!--</head>-->
+<!--<body style="background:#eeeeee;">-->
+<!--<div class="midbox">&nbsp;</div>-->
+<!--<div class="login">-->
+    <!--<div class="login_right">-->
+        <!--<div style="float:left; width:260px; height:auto; text-align:right; margin-top:3px;font-size: 14px;">-->
+            <!--<span></span>-->
+            <!--用户名：<input type="text" style="margin-top:93px;" id="username" value="" /><br />-->
+            <!--<span></span>-->
+            <!--密码：<input type="password" style="margin-top:22px;" id="userpwd" value="" /><br />-->
+            <!--<span></span>-->
+            <!--验证码：<input type="text" style="margin-top:22px;" id="loginCode" value="" />-->
+            <!--<div id="captchaImg">-->
+            <!--<img border="0" height="30" width="150" src="CaptchaImg.go" onclick="refeshCode();"/><br />-->
+            <!--</div>-->
+            <!--<table border="0" cellpadding="0" cellspacing="0" height="40">-->
+                <!--<tr>-->
+                    <!--<td width="120">&nbsp;</td>-->
+                    <!--<td><a id="btn" onclick="dologin();"><img alt="登录" src="images/login_button.gif" /></a></td>-->
+                    <!--<td width="50">&nbsp;</td>-->
+                <!--</tr>-->
+                <!---->
+            <!--</table>-->
+        <!--</div>-->
+    <!--</div>-->
+<!--</div>-->
+  <!--<span id="check"></span>-->
+  <!--</body>-->
+<!--</html>-->
+<!--<script type="text/javascript">-->
+    <!--window.history.forward(1);-->
+<!--//按钮绑定回车键-->
+    <!--$(function(){-->
+        <!--document.onkeydown = function(e){ -->
+            <!--var ev = document.all ? window.event : e;-->
+            <!--if(ev.keyCode==13) {-->
+                <!--$('#btn').click();-->
+            <!--}-->
+        <!--}-->
+        <!--});-->
+
+<!--//登录验证-->
+    <!--function dologin(){-->
+        <!--var loginName = $("#username").val();-->
+        <!--if(loginName == ""){-->
+            <!--alert("请输入登录用户名");-->
+            <!--$("#username").focus();-->
+            <!--return false;-->
+        <!--}else{-->
+            <!--if(/['"<>!=;?*#-]/.test(loginName)){-->
+                <!--alert("登录用户名中不允许输入特殊字符！");-->
+            <!--$("#username").focus();-->
+            <!--return false;-->
+            <!--}-->
+        <!--}-->
+        <!--var loginPass = $("#userpwd").val();-->
+        <!--if(loginPass == ""){-->
+            <!--alert("请输入登陆密码");-->
+            <!--$("#userpwd").focus();-->
+            <!--return false;-->
+        <!--}else{-->
+            <!--if(/['"<>!=;?*#-]/.test(loginPass)){-->
+                <!--alert("登录密码中不允许输入特殊字符！");-->
+            <!--$("#userpwd").focus();-->
+            <!--return false;-->
+            <!--}-->
+        <!--}-->
+        <!--var loginCode = $("#loginCode").val();-->
+<!--//        if(loginCode == ""){-->
+<!--//            alert("请输入验证码");-->
+<!--//            $("#loginCode").focus();-->
+<!--//            return false;-->
+<!--//        }-->
+        <!--$.ajax({-->
+            <!--type:"post",-->
+            <!--url:"user.loginUser.do",-->
+            <!--data:"loginName="+loginName+"&loginPass="+loginPass+"&loginCode="+loginCode,-->
+            <!--dataType:"text",-->
+            <!--success:function(msg){-->
+                <!--if(msg==-1){-->
+                    <!--alert("用户名或密码错误！");-->
+<!--//                    $("#username").val("");-->
+                    <!---->
+                    <!--$("#userpwd").val("");-->
+                    <!--$("#userpwd").focus();-->
+                    <!--refeshCode();-->
+                    <!--return false;-->
+                <!--}else if(msg==-2){-->
+<!--//                    if(msg==-2){-->
+                    <!--alert("验证码错误！");-->
+                    <!--refeshCode();-->
+<!--//                    return false;}-->
+                <!--} else{-->
+                    <!--location.href="user.toUserPage.do";-->
+                    <!--}-->
+                <!--//}-->
+                <!--return true;-->
+            <!--}-->
+        <!--});-->
+    <!--}-->
+
+
+   <!--function refeshCode() {-->
+        <!--$("#captchaImg").html('');-->
+	<!--$('#captchaImg').html('<img border="0" height="30" width="150" src="CaptchaImg.go?rand=' + Math.random() + '" onclick="refeshCode();" />');-->
+<!--}-->
+<!--</script>-->
