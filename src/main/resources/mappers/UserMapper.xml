@@ -153,21 +153,15 @@
   </update>
 
   <select id="checkName" resultType="int" parameterType="string">
-    SELECT count(0)
-    from "user"
+    SELECT count(1)
+    from user
     where username=#{name}
   </select>
 
   <select id="queryUser" resultMap="BaseResultMap" parameterType="map">
     select <include refid="Base_Column_List"/>
-    from "user"
-    where 1=1
-    <if test="username!= null" >
-      and "user".username=#{username}
-    </if>
-    <if test="email!= null" >
-      and "user".email=#{username}
-    </if>
+    from user
+    where username=#{username}
     and password=#{password}
   </select>
 </mapper>
