@@ -46,4 +46,21 @@
       </if>
     </trim>
   </insert>
+
+  <resultMap id="allInfo" type="java.util.HashMap">
+    <!--<result column="value" property="values" jdbcType="INTEGER" javaType="int" />-->
+    <result column="value" property="values" jdbcType="INTEGER" javaType="int" />
+    <result column="name"  property="keySet" jdbcType="VARCHAR" javaType="string"/>
+    <!--<result column="name" property="entrySet" jdbcType="VARCHAR" javaType="string"/>-->
+  </resultMap>
+
+
+  <select id="queryMapData" resultMap="allInfo" >
+    select city as "name",
+    sum(infectcnt) as "value"
+    from t_ip_consoled
+    group by city
+  </select>
+
+
 </mapper>
