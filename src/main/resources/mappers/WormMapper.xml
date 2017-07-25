@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.wa.dao.WormMapper" >
+  <resultMap id="BaseResultMap" type="com.wa.pojo.Worm" >
+    <constructor >
+      <arg column="original_ip" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="dns_query_ip" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="ref_data_1" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="ref_data_2" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="ref_data_3" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="ref_data_4" jdbcType="VARCHAR" javaType="java.lang.String" />
+    </constructor>
+  </resultMap>
+  <insert id="insert" parameterType="com.wa.pojo.Worm" >
+    insert into wanga_worm (original_ip, dns_query_ip, ref_data_1, 
+      ref_data_2, ref_data_3, ref_data_4
+      )
+    values (#{originalIp,jdbcType=VARCHAR}, #{dnsQueryIp,jdbcType=VARCHAR}, #{refData1,jdbcType=VARCHAR}, 
+      #{refData2,jdbcType=VARCHAR}, #{refData3,jdbcType=VARCHAR}, #{refData4,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.wa.pojo.Worm" >
+    insert into wanga_worm
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="originalIp != null" >
+        original_ip,
+      </if>
+      <if test="dnsQueryIp != null" >
+        dns_query_ip,
+      </if>
+      <if test="refData1 != null" >
+        ref_data_1,
+      </if>
+      <if test="refData2 != null" >
+        ref_data_2,
+      </if>
+      <if test="refData3 != null" >
+        ref_data_3,
+      </if>
+      <if test="refData4 != null" >
+        ref_data_4,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="originalIp != null" >
+        #{originalIp,jdbcType=VARCHAR},
+      </if>
+      <if test="dnsQueryIp != null" >
+        #{dnsQueryIp,jdbcType=VARCHAR},
+      </if>
+      <if test="refData1 != null" >
+        #{refData1,jdbcType=VARCHAR},
+      </if>
+      <if test="refData2 != null" >
+        #{refData2,jdbcType=VARCHAR},
+      </if>
+      <if test="refData3 != null" >
+        #{refData3,jdbcType=VARCHAR},
+      </if>
+      <if test="refData4 != null" >
+        #{refData4,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+</mapper>
