@@ -63,15 +63,12 @@
     </trim>
   </insert>
 
-  <resultMap id="allInfo" type="java.util.HashMap">
-    <!--<result column="value" property="values" jdbcType="INTEGER" javaType="int" />-->
-    <result column="value" property="values" jdbcType="INTEGER" javaType="int" />
-    <result column="name"  property="keySet" jdbcType="VARCHAR" javaType="string"/>
-    <!--<result column="name" property="entrySet" jdbcType="VARCHAR" javaType="string"/>-->
+  <resultMap id="datamap" type="com.wa.pojo.DataMap">
+    <result column="name" property="name" javaType="String" jdbcType="VARCHAR"/>
+    <result column="value" property="value" javaType="integer" jdbcType="VARCHAR"/>
   </resultMap>
 
-
-  <select id="queryMapData" resultMap="allInfo" >
+  <select id="queryMapData" resultMap="datamap" >
     select ref_data_4 as "name",count(*) as "value"
     from wanga_worm
     group by ref_data_4

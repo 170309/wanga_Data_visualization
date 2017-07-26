@@ -48,7 +48,7 @@ public class IRepostoryServiceImpl implements IRepostoryService {
         MapDataVo mapDataVo = new MapDataVo();
 
         mapDataVo.setConsoledtitle("木马受控数据");
-        mapDataVo.setConcoled(consoled);
+        mapDataVo.setConsoled(consoled);
 
         mapDataVo.setControl(control);
         mapDataVo.setControltitle("木马主控数据");

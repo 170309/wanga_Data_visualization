@@ -65,6 +65,57 @@
 </html>
 
 <SCRIPT type="text/javascript">
+
+    var ma1={
+        title:'',
+        avgRange:2000,
+        data:{}
+    };
+    var kzrc1={
+        title:'',
+        avgRange:2000,
+        data:{}
+    };
+    var skrc1={
+        title:'',
+        avgRange:2000,
+        data:{}
+    };
+
+
+    var _util={
+        request:function(params){
+            $.ajax({
+                type : params.method  || 'get',
+                url  : params.url     || '',
+                dataType: params.type || 'json',
+                data: params.data     || '',
+                success:function (e) {
+                    var data = e.data.list[0];
+                    ma1.title=data.consoledtitle;
+                    ma1.data=data.consoled;
+                    kzrc1.title=data.wormtitle;
+                    kzrc1.data=data.worm;
+                    skrc1.title=data.controltitle;
+                    skrc1.data=data.control;
+
+                },
+                error:function (e) {
+                    e.error(e.statusText);
+                }
+            });
+
+        }
+    };
+
+    //    var _util = require('../js/util.js');
+
+    _util.request({
+        url:'/data/get_data.do',
+    });
+
+    var varList = [ma1,kzrc1];
+    console.log(ma1.data[0].keySet);
     var meny = Meny.create({
         menuElement: document.querySelector('.meny'),
         contentsElement: document.querySelector('.contents'),

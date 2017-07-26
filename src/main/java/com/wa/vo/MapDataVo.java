@@ -12,18 +12,27 @@ public class MapDataVo {
 
     private String wormtitle;
 
-    private List<DataMap> concoled;
+    private List<DataMap> consoled;
     private List<DataMap> control;
     private List<DataMap> worm;
 
     public MapDataVo() {
     }
 
-    public MapDataVo(String consoledtitle, String controltitle, String wormtitle, List<DataMap> concoled, List<DataMap> control, List<DataMap> worm) {
+    public List<DataMap> getConsoled() {
+        return consoled;
+    }
+
+    public void setConsoled(List<DataMap> consoled) {
+        this.consoled = consoled;
+    }
+
+    public MapDataVo(String consoledtitle, String controltitle, String wormtitle, List<DataMap> consoled, List<DataMap> control, List<DataMap> worm) {
         this.consoledtitle = consoledtitle;
         this.controltitle = controltitle;
         this.wormtitle = wormtitle;
-        this.concoled = concoled;
+        this.consoled = consoled;
+
         this.control = control;
         this.worm = worm;
     }
@@ -52,13 +61,7 @@ public class MapDataVo {
         this.wormtitle = wormtitle;
     }
 
-    public List<DataMap> getConcoled() {
-        return concoled;
-    }
 
-    public void setConcoled(List<DataMap> concoled) {
-        this.concoled = concoled;
-    }
 
     public List<DataMap> getControl() {
         return control;
