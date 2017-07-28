@@ -7,8 +7,6 @@
          var topData="[";
          for(var i=0;i<4;i++){
              topData+='{name:"'+dataJson[i].name+'", value: '+dataJson[i].value+"},";
-             // topData+='{name:"'+dataJson[i].keySet +'", value: '+dataJson[i].values+"},";
-
          }
          topData=eval(topData.substring(0,topData.length-1)+"]");
         return topData; 
@@ -20,8 +18,6 @@
         for (var i = dataJson.length - 1; i >= 0; i--) {
             sData.push(dataJson[i].value);
             aData.push(dataJson[i].name);
-            // sData.push(dataJson[i].values);
-            // aData.push(dataJson[i].keySet);
         }
         var barData = {
             "legen": [title],//图例数据标题

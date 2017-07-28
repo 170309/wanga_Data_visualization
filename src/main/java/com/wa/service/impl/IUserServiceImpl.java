@@ -30,4 +30,32 @@ public class IUserServiceImpl implements IUserService {
         return ServerResponse.createBySuccess(user);
     }
 
+    public ServerResponse<String> register(User user){
+        int result = userMapper.checkName(user.getUsername());
+        if(result > 0 ){
+            return ServerResponse.createByError("用户名已存在");
+        }
+
+        user.setPassword(MD5Util.MD5EncodeUtf8(user.getPassword()));
+
+        result = userMapper.insertSelective(user);
+
+        if(result == 0){
+            return ServerResponse.createByError("注册失败");
+        }
+
+        return ServerResponse.createBySuccess("注册成功");
+
+    }
+
+
+//    public ServerResponse<String> updatePassword(String newPasssword){
+//        String MD5 = MD5Util.MD5EncodeUtf8(newPasssword);
+//        int result = userMapper.updatePassword(MD5);
+//        if(result == 0){
+//            return ServerResponse.createByError("改密失败");
+//        }
+//        return ServerResponse.createBySuccess("改密成功");
+//    }
+
 }

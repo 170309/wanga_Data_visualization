@@ -28,9 +28,13 @@
         <listener-class>org.springframework.web.context.request.RequestContextListener</listener-class>
     </listener>
 
+    <!--
+        ContextLoaderListener 初始化的上下文加载的bean是被项目全局使用的
+    -->
     <listener>
         <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
     </listener>
+
     <context-param>
         <param-name>contextConfigLocation</param-name>
         <param-value>
@@ -38,9 +42,34 @@
         </param-value>
     </context-param>
 
+    <servlet-mapping>
+        <servlet-name>default</servlet-name>
+        <url-pattern>*.png</url-pattern>
+        <url-pattern>*.js</url-pattern>
+        <url-pattern>*.css</url-pattern>
+        <url-pattern>*.gif</url-pattern>
+        <url-pattern>*.jpg</url-pattern>
+    </servlet-mapping>
+
+
+    <!--
+        流程控制，整个Springmvc的 流程控制端口，职责如下：
+        1.文件上传解析，如果请求的类型是multipart ，将进行文件上传解析
+        2，通过HandlerMapping 将请求的链接映射到每一个对应的处理器，返回一个HandlerExecutionChain,包括一个处理器和一个HandlerInterceptor拦截器
+        3.通过HandlerAdpter支持多种类型的处理器
+        4，通过ViewResolver解析逻辑图到具体视图实现
+        5.本地化解析
+        6.渲染具体的视图
+        7.如果执行过程中遇到异常将交给HandlerExceptionResolve处理
+    -->
     <servlet>
         <servlet-name>dispatcher</servlet-name>
         <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
+        <!--加载位置自定义的*-servlet.xml，默认加载/WEB-INF/*-servlet.xml-->
+        <!--<init-param>-->
+            <!--<param-name>contextConfigLocation</param-name>-->
+            <!--<param-value>classpath:</param-value>-->
+        <!--</init-param>-->
         <load-on-startup>1</load-on-startup>
     </servlet>
     <servlet-mapping>
@@ -51,7 +80,5 @@
         <servlet-name>dispatcher</servlet-name>
         <url-pattern>*.do</url-pattern>
     </servlet-mapping>
-
-
 </web-app>
 

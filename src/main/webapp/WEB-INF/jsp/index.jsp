@@ -9,6 +9,7 @@
         <link rel=stylesheet type='text/css' href="css/colors-classic.css" media="all"/>
         <link rel=stylesheet type='text/css' href="css/menyDemo.css" media="all"/>
         <link rel=stylesheet type='text/css' href="css/indexStyle.css" media="all"/>
+        <link rel=stylesheet type='text/css' href="css/common.css" />
 
         <link href="js/echarts/css/font-awesome.min.css" rel="stylesheet">
         <link href="js/echarts/css/bootstrap.css" rel="stylesheet">
@@ -16,6 +17,7 @@
         <link href="js/echarts/css/echartsHome.css" rel="stylesheet">
         <link href="js/echarts/css/codemirror.css" rel="stylesheet">
         <link href="js/echarts/css/monokai.css" rel="stylesheet">
+
 
         <script src="js/meny.js" type="text/javascript"></script>
         <script src="js/echarts/codemirror.js" type="text/javascript"></script>
@@ -45,7 +47,6 @@
                             <li><a class="menu-item" onclick="loadpage('echartsMap');" >大屏页面</a></li>
                             <li><a class="menu-item" onclick="loadpage('WAIndex');" >首页</a></li>
                             <li><a class="menu-item" onclick="loadpage('individualHtml');" >某单位</a></li>
-                            <li><a class="menu-item" onclick="loadpage('login');" >登录</a></li>
                         </ul>
                     </div>
 
@@ -65,57 +66,6 @@
 </html>
 
 <SCRIPT type="text/javascript">
-
-    var ma1={
-        title:'',
-        avgRange:2000,
-        data:{}
-    };
-    var kzrc1={
-        title:'',
-        avgRange:2000,
-        data:{}
-    };
-    var skrc1={
-        title:'',
-        avgRange:2000,
-        data:{}
-    };
-
-
-    var _util={
-        request:function(params){
-            $.ajax({
-                type : params.method  || 'get',
-                url  : params.url     || '',
-                dataType: params.type || 'json',
-                data: params.data     || '',
-                success:function (e) {
-                    var data = e.data.list[0];
-                    ma1.title=data.consoledtitle;
-                    ma1.data=data.consoled;
-                    kzrc1.title=data.wormtitle;
-                    kzrc1.data=data.worm;
-                    skrc1.title=data.controltitle;
-                    skrc1.data=data.control;
-
-                },
-                error:function (e) {
-                    e.error(e.statusText);
-                }
-            });
-
-        }
-    };
-
-    //    var _util = require('../js/util.js');
-
-    _util.request({
-        url:'/data/get_data.do',
-    });
-
-    var varList = [ma1,kzrc1];
-    console.log(ma1.data[0].keySet);
     var meny = Meny.create({
         menuElement: document.querySelector('.meny'),
         contentsElement: document.querySelector('.contents'),

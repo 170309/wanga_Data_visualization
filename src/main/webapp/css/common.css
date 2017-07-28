@@ -1,0 +1,31 @@
+/*login 添加样式*/
+
+body{
+    background: #eee;
+}
+
+.login-con{
+    background: url("../images/bg/IDC_login.png") no-repeat;
+    width: 748px;
+    height: 311px;
+    margin: 200px auto;
+    position: relative;
+}
+
+.margin-bottom{
+    margin-bottom: 15px;
+}
+
+.center{
+    position: relative;
+    margin-left: 50%;
+    left:-45px;
+}
+.login-content{
+    /*border: 1px solid #222;*/
+    width: 265px;
+    height: 200px;
+    position: relative;
+    top: 93px;
+    left: 466px;
+}

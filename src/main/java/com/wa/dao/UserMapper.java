@@ -19,4 +19,6 @@ public interface UserMapper {
     int checkName(String name);
 
     User queryUser(@Param("username")String username,@Param("password")String password);
+
+    int updatePassword(String newPassword);
 }

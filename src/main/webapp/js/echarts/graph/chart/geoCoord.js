@@ -22,6 +22,6 @@ var geoCoord = {
 };
 //地图定时器刷新时间
 var intervalTime=15000;
-var groupIntervalTime=45000;
+var groupIntervalTime=30000;
 //图例尺标最大值
 var maxRange = 1000;

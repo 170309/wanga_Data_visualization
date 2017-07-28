@@ -21,8 +21,9 @@
 
     <!--<context:annotation-config/>-->
     <aop:aspectj-autoproxy/>
-
-
+    <mvc:resources mapping="/css/**" location="/css/"/>
+    <mvc:resources mapping="/images/**" location="/images/"/>
+    <mvc:resources mapping="/js/**" location="/js/"/>
 
     <import resource="applicationContext-datasource.xml"/>
 

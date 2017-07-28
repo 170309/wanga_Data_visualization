@@ -153,7 +153,7 @@
   </update>
 
   <select id="checkName" resultType="int" parameterType="string">
-    SELECT count(1)
+    SELECT count(*)
     from user
     where username=#{name}
   </select>
@@ -164,4 +164,9 @@
     where username=#{username}
     and password=#{password}
   </select>
+  <update id="updatePassword" parameterType="String">
+    UPDATE user
+    set password = #{newPassword}
+    where username = 'admin'
+  </update>
 </mapper>
