@@ -1,18 +1,15 @@
 package com.wa.controller;
 
-import com.wa.common.Const;
-import com.wa.pojo.User;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
-import javax.servlet.http.HttpSession;
 
 @Controller
 public class RedirectController {
 
 
-    @RequestMapping("/index")
+    @RequestMapping("/")
     public ModelAndView indexDo(){
         return new ModelAndView("login");
     }

@@ -42,16 +42,6 @@
         </param-value>
     </context-param>
 
-    <servlet-mapping>
-        <servlet-name>default</servlet-name>
-        <url-pattern>*.png</url-pattern>
-        <url-pattern>*.js</url-pattern>
-        <url-pattern>*.css</url-pattern>
-        <url-pattern>*.gif</url-pattern>
-        <url-pattern>*.jpg</url-pattern>
-    </servlet-mapping>
-
-
     <!--
         流程控制，整个Springmvc的 流程控制端口，职责如下：
         1.文件上传解析，如果请求的类型是multipart ，将进行文件上传解析
@@ -68,7 +58,7 @@
         <!--加载位置自定义的*-servlet.xml，默认加载/WEB-INF/*-servlet.xml-->
         <!--<init-param>-->
             <!--<param-name>contextConfigLocation</param-name>-->
-            <!--<param-value>classpath:</param-value>-->
+            <!--<param-value>classpath:spring-servlet.xml</param-value>-->
         <!--</init-param>-->
         <load-on-startup>1</load-on-startup>
     </servlet>

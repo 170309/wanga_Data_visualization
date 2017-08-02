@@ -40,11 +40,6 @@
 
 
 
-
-
-
-
-
   <dependencies>
     <dependency>
       <groupId>org.apache.tomcat</groupId>
@@ -94,6 +89,7 @@
       <artifactId>mybatis-spring</artifactId>
       <version>${org.mybatis.spring.version}</version>
     </dependency>
+
     <dependency>
       <groupId>org.mybatis</groupId>
       <artifactId>mybatis</artifactId>
